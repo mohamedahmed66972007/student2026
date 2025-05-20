@@ -24,7 +24,7 @@ sqlite.exec(`
     original_name TEXT NOT NULL,
     file_size INTEGER NOT NULL,
     mime_type TEXT NOT NULL,
-    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+    upload_date TEXT DEFAULT (datetime('now')) NOT NULL
   );
   
   CREATE TABLE IF NOT EXISTS exams (
@@ -51,7 +51,7 @@ sqlite.exec(`
     title TEXT NOT NULL,
     subject TEXT NOT NULL,
     creator_name TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    created_at TEXT DEFAULT (datetime('now')) NOT NULL,
     questions JSON NOT NULL
   );
   
@@ -62,6 +62,6 @@ sqlite.exec(`
     score INTEGER NOT NULL,
     total_questions INTEGER NOT NULL,
     answers JSON NOT NULL,
-    completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+    completed_at TEXT DEFAULT (datetime('now')) NOT NULL
   );
 `);
