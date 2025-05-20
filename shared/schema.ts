@@ -40,13 +40,13 @@ export const questionTypeEnum = pgEnum("question_type", [
 export const files = pgTable("files", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
-  subject: subjectEnum("subject").notNull(),
-  semester: semesterEnum("semester").notNull(),
+  subject: text("subject").notNull(),
+  semester: text("semester").notNull(),
   fileName: text("file_name").notNull(),
   originalName: text("original_name").notNull(),
   fileSize: integer("file_size").notNull(),
   mimeType: text("mime_type").notNull(),
-  uploadDate: timestamp("upload_date").defaultNow().notNull(),
+  uploadDate: text("upload_date").notNull(),
 });
 
 export const insertFileSchema = createInsertSchema(files).omit({
