@@ -24,7 +24,7 @@ sqlite.exec(`
     original_name TEXT NOT NULL,
     file_size INTEGER NOT NULL,
     mime_type TEXT NOT NULL,
-    upload_date TEXT DEFAULT (datetime('now')) NOT NULL
+    upload_date TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%S', 'now')) NOT NULL
   );
   
   CREATE TABLE IF NOT EXISTS exams (
